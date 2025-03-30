@@ -1,164 +1,179 @@
-/* --- (Estilos anteriores sin cambios) --- */
+/* Estilos Generales */
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    margin: 20px;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f7f6;
     color: #333;
 }
 
 .simulator-container {
     max-width: 900px;
-    margin: auto;
-    background: #fff;
-    padding: 25px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h1 {
     text-align: center;
-    color: #0056b3; /* Un azul oscuro */
-    margin-bottom: 20px;
 }
 
-.panels {
+.explanation {
+    font-size: 0.9em;
+    color: #555;
+    background-color: #e9f5f8;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+.content-wrapper {
     display: flex;
-    flex-wrap: wrap; /* Permite que los paneles se ajusten en pantallas pequeñas */
-    gap: 20px; /* Espacio entre paneles */
-    margin-bottom: 20px;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+    gap: 40px; /* Espacio entre controles y visualización */
 }
 
-.panel {
-    background: #e9ecef; /* Un gris claro */
-    padding: 20px;
-    border-radius: 5px;
-    flex: 1; /* Hace que los paneles intenten ocupar el mismo espacio */
-    min-width: 300px; /* Ancho mínimo antes de envolver */
+.controls-results {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 300px; /* Ancho mínimo */
 }
 
-#input-panel h2, #results-panel h2 {
-    margin-top: 0;
-    color: #333;
-    text-align: left;
+.visualization {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Controles */
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #444;
 }
 
-.input-group input[type="range"] {
-    width: 70%; /* Ajusta el ancho del slider */
-    cursor: pointer;
-    margin-right: 10px;
-    vertical-align: middle; /* Alinea mejor el slider con el texto */
-}
-
-.input-group span {
-    font-weight: bold;
-    color: #0056b3;
-    display: inline-block; /* Permite ajustar el ancho */
-    min-width: 60px; /* Ancho mínimo para que no salte tanto el layout */
-    text-align: left;
-}
-
-.input-group select {
-    padding: 5px;
-    border-radius: 4px;
+.input-group input[type="number"] {
+    width: calc(100% - 22px); /* Ajusta por padding y borde */
+    padding: 10px;
     border: 1px solid #ccc;
-    min-width: 150px; /* Ancho mínimo para el selector */
+    border-radius: 4px;
+    font-size: 1em;
 }
 
-/* --- Estilo para el botón de Calcular --- */
-.calculate-button {
-    display: block; /* Ocupa su propia línea */
-    width: 100%; /* Ocupa todo el ancho del panel de entrada */
+button#calculate-btn {
+    display: block;
+    width: 100%;
     padding: 12px 20px;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #28a745; /* Verde */
+    background-color: #3498db;
+    color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px; /* Espacio arriba */
-    transition: background-color 0.3s ease;
-}
-
-.calculate-button:hover {
-    background-color: #218838; /* Verde más oscuro al pasar el ratón */
-}
-/* --- Fin estilo botón --- */
-
-
-#results-panel p {
-    margin: 10px 0;
     font-size: 1.1em;
-    overflow: hidden; /* Contiene los flotados */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
-#results-panel strong {
-    color: #0056b3; /* Azul para resultados (en lugar de verde) */
-    float: right; /* Alinea los resultados a la derecha */
-    margin-left: 10px; /* Espacio entre etiqueta y valor */
-    font-family: monospace; /* Fuente monoespaciada para alinear números */
-}
-#results-panel hr {
-    margin: 15px 0;
-    border: 0;
-    border-top: 1px solid #ccc;
+button#calculate-btn:hover {
+    background-color: #2980b9;
 }
 
-/* --- Estilo para la nota en resultados --- */
-#results-panel .note {
-    font-size: 0.9em;
-    color: #6c757d; /* Gris */
-    text-align: center;
+/* Resultados */
+.results-display {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-top: 10px; /* Espacio después del botón */
+}
+
+.results-display p {
+    margin: 10px 0;
+    font-size: 1.05em;
+}
+
+.results-display span {
+    font-weight: bold;
+    color: #e74c3c; /* Color destacado para los números */
+}
+
+.error {
+    color: #c0392b;
+    font-weight: bold;
     margin-top: 15px;
-}
-/* --- Fin estilo nota --- */
-
-.explanation-panel {
-    background-color: #f8f9fa; /* Fondo ligeramente diferente */
-    border: 1px solid #ddd;
-    margin-top: 20px; /* Espacio arriba */
-    flex-basis: 100%; /* Ocupa todo el ancho disponible */
+    min-height: 1.2em; /* Para que no salte el layout */
 }
 
-.explanation-panel h2 {
-     text-align: left;
-     color: #333;
+/* Visualización */
+.stairs-container {
+    position: relative;
+    width: 200px; /* Ancho de la escalera */
+    height: 250px; /* Altura total de la visualización de la escalera */
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    margin-top: 20px;
+    overflow: hidden; /* Para que la persona no se salga si los valores son muy altos */
 }
 
-.explanation-panel ul {
-    padding-left: 20px;
-}
-.explanation-panel li {
-    margin-bottom: 10px;
+/* Genera escalones simples con CSS */
+.step {
+    position: absolute;
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
 }
 
-/* Media Query para mejor visualización en móviles */
-@media (max-width: 700px) {
-    .panels {
-        flex-direction: column; /* Apila los paneles */
+/* Posicionamiento manual de algunos escalones (puedes generar más con JS si quieres) */
+.step:nth-child(1) { width: 100%; height: 40px; bottom: 0; left: 0; }
+.step:nth-child(2) { width: 85%; height: 40px; bottom: 40px; left: 0; }
+.step:nth-child(3) { width: 70%; height: 40px; bottom: 80px; left: 0; }
+.step:nth-child(4) { width: 55%; height: 40px; bottom: 120px; left: 0; }
+.step:nth-child(5) { width: 40%; height: 40px; bottom: 160px; left: 0; }
+.step:nth-child(6) { width: 25%; height: 40px; bottom: 200px; left: 0; }
+
+.person {
+    position: absolute;
+    bottom: 5px; /* Posición inicial en el "suelo" */
+    left: 10px; /* Ajuste horizontal inicial */
+    font-size: 2.5em; /* Tamaño del icono/emoji */
+    transition: bottom 0.8s ease-in-out; /* Animación suave al moverse */
+    z-index: 10; /* Para que esté sobre los escalones */
+}
+
+.height-indicator {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #555;
+    font-weight: bold;
+}
+
+
+/* Media Query para mejorar en pantallas pequeñas */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Apila los elementos */
     }
-    .panel {
-        min-width: unset; /* Remueve el ancho mínimo en móviles */
+    .simulator-container {
+        padding: 20px;
     }
-     #results-panel strong {
-        float: none; /* Evita el flotado en pantallas pequeñas */
-        display: block; /* Muestra el valor debajo de la etiqueta */
-        margin-left: 0;
-        margin-top: 3px;
-        text-align: left; /* Alinea a la izquierda en móvil */
-    }
-     .input-group input[type="range"] {
-        width: 60%; /* Reduce un poco el slider en móvil */
+    .visualization {
+         margin-top: 30px; /* Más espacio arriba en móvil */
     }
 }
