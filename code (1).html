@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador: Trabajo y Energía al Subir Escaleras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="simulator-container">
+        <h1>Escalando con Física: Trabajo y Energía</h1>
+
+        <div class="panels">
+            <!-- Panel de Entradas -->
+            <div class="panel" id="input-panel">
+                <h2>Parámetros de Entrada</h2>
+
+                <div class="input-group">
+                    <label for="mass">Masa de la persona (kg):</label>
+                    <input type="range" id="mass" name="mass" min="40" max="120" value="70" step="1">
+                    <span id="massValue">70 kg</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="stepHeight">Altura de cada escalón (m):</label>
+                    <input type="range" id="stepHeight" name="stepHeight" min="0.10" max="0.25" value="0.18" step="0.01">
+                    <span id="stepHeightValue">0.18 m</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="numSteps">Número de escalones:</label>
+                    <input type="range" id="numSteps" name="numSteps" min="5" max="100" value="30" step="1">
+                    <span id="numStepsValue">30 escalones</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="time">Tiempo para subir (s):</label>
+                    <input type="range" id="time" name="time" min="5" max="120" value="20" step="1">
+                    <span id="timeValue">20 s</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="efficiency">Eficiencia Muscular (%):</label>
+                    <input type="range" id="efficiency" name="efficiency" min="15" max="25" value="20" step="1">
+                    <span id="efficiencyValue">20 %</span>
+                </div>
+
+                 <div class="input-group">
+                    <label for="gravity">Gravedad (m/s²):</label>
+                    <select id="gravity" name="gravity">
+                        <option value="9.81" selected>Tierra (9.81)</option>
+                        <option value="1.62">Luna (1.62)</option>
+                        <option value="3.71">Marte (3.71)</option>
+                    </select>
+                 </div>
+
+                 <!-- Botón para Calcular -->
+                 <button id="calculateButton" class="calculate-button">Calcular Resultados</button>
+            </div>
+
+            <!-- Panel de Resultados -->
+            <div class="panel" id="results-panel">
+                <h2>Resultados Calculados</h2>
+                <p>Altura Total (H): <strong id="totalHeightResult">-- m</strong></p>
+                <p>Fuerza (Peso): <strong id="forceResult">-- N</strong></p>
+                <p>Trabajo Realizado (W): <strong id="workResult">-- J</strong></p>
+                <p>Δ Energía Potencial (ΔEP): <strong id="potentialEnergyResult">-- J</strong></p>
+                <p>Potencia Desarrollada (P): <strong id="powerResult">-- W</strong></p>
+                <hr>
+                <p>Energía Metabólica Consumida:</p>
+                 <p><strong id="metabolicEnergyResult">-- J</strong></p>
+                <p>Calorías Quemadas (aprox.):</p>
+                 <p><strong id="caloriesResult">-- kcal</strong></p>
+                 <p class="note">Presiona "Calcular Resultados" para actualizar.</p>
+            </div>
+        </div>
+
+         <!-- Panel de Explicaciones (sin cambios) -->
+         <div class="panel explanation-panel">
+            <h2>Conceptos Clave</h2>
+            <ul>
+                <li><strong>Trabajo (W):</strong> Es la energía transferida cuando una fuerza (como la que haces contra tu peso) mueve un objeto (tú) una distancia (la altura). Se mide en Julios (J). Fórmula: W = Fuerza × Altura = m × g × H.</li>
+                <li><strong>Energía Potencial Gravitatoria (EP):</strong> Es la energía almacenada por un objeto debido a su posición en un campo gravitatorio. Al subir, ganas energía potencial. El cambio (ΔEP) es igual al trabajo realizado contra la gravedad. ΔEP = m × g × H.</li>
+                <li><strong>Potencia (P):</strong> Es la rapidez con la que se realiza el trabajo o se transfiere energía. Se mide en Vatios (W). Fórmula: P = Trabajo / Tiempo = W / t.</li>
+                <li><strong>Eficiencia Muscular (η):</strong> El cuerpo humano no convierte toda la energía química de los alimentos en trabajo mecánico. Gran parte se pierde como calor. La eficiencia (ej. 20% = 0.20) indica qué fracción de la energía metabólica total se convierte en trabajo útil.</li>
+                <li><strong>Energía Metabólica:</strong> La energía total que tu cuerpo gasta (medida en Julios o Calorías). Se calcula como: E_metabólica = Trabajo / Eficiencia = W / η.</li>
+                <li><strong>Calorías (kcal):</strong> Una unidad de energía comúnmente usada para alimentos y ejercicio. 1 kcal ≈ 4184 Julios.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
